@@ -5,5 +5,22 @@
       "config/**/*.js",
       "node_modules/**/*.ts"
     ]
+  },
+  "rules": {
+    "comma-dangle": 0,
+    "no-console": {
+      "severity": "warning",
+      "options": [
+        "debug",
+        "info",
+        "log",
+        "time",
+        "timeEnd",
+        "trace"
+      ]
+    },
+    "ordered-imports": false,
+    "variable-name": [false],
+    "interface-name": [false]
   }
 }
