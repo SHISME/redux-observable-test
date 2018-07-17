@@ -1,0 +1,1 @@
+export const SEND_HEADER_MSG = 'SEND_HEADER_MSG';

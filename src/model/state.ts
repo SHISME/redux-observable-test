@@ -1,7 +1,9 @@
 export interface IAppState {
-    appIsRunning:boolean,
+  appIsRunning:boolean,
+  currentPanel:string,
 }
 
 export const initAppState:IAppState = {
-    appIsRunning:false,
+  appIsRunning:false,
+  currentPanel:'index',
 };

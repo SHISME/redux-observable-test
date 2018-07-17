@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route,Switch } from 'react-router-dom';
 import App from '../App';
+import { Index } from './Index/index';
+import { Header } from './header/';
 
 interface RootProps {
   store:any;
@@ -17,7 +19,12 @@ export class Root extends React.Component<RootProps>{
     return (
       <Provider store={this.props.store}>
         <Router>
-          <Route path='/' component={App} />
+          <App>
+            <Header/>
+            <Switch>
+              <Route path='/index' component={Index} />
+            </Switch>
+          </App>
         </Router>
       </Provider>
     );

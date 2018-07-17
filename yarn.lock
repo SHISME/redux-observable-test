@@ -5860,6 +5860,10 @@ redux-actions@^2.4.0:
     lodash-es "^4.17.4"
     reduce-reducers "^0.1.0"
 
+redux-observable@^1.0.0:
+  version "1.0.0"
+  resolved "http://registry.npm.taobao.org/redux-observable/download/redux-observable-1.0.0.tgz#780ff2455493eedcef806616fe286b454fd15d91"
+
 redux@^4.0.0:
   version "4.0.0"
   resolved "http://registry.npm.taobao.org/redux/download/redux-4.0.0.tgz#aa698a92b729315d22b34a0553d7e6533555cc03"
