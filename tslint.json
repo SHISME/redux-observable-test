@@ -7,7 +7,6 @@
     ]
   },
   "rules": {
-    "comma-dangle": 0,
     "no-console": {
       "severity": "warning",
       "options": [
@@ -19,6 +18,8 @@
         "trace"
       ]
     },
+    "object-literal-sort-keys": false,
+    "no-unused-variable": false,
     "ordered-imports": false,
     "variable-name": [false],
     "interface-name": [false]

@@ -6,7 +6,7 @@ export interface ISendHeaderMsgPayload {
   msg?:string;
 }
 
-function reducerStartApp(
+function sendHeaderMsg(
   state:IHeaderState,
   action:Action<ISendHeaderMsgPayload>
 ):IHeaderState {
@@ -21,5 +21,5 @@ function reducerStartApp(
 }
 
 export const headerReducers = handleActions<IHeaderState, any>({
-  [A.SEND_HEADER_MSG]:reducerStartApp,
+  [A.SEND_HEADER_MSG]:sendHeaderMsg,
 }, initHeaderState);

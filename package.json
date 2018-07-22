@@ -11,10 +11,12 @@
     "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts-ts": "2.16.0",
+    "react-scripts-ts": "^2.16.0",
     "redux": "^4.0.0",
     "redux-actions": "^2.4.0",
-    "redux-observable": "^1.0.0"
+    "redux-observable": "^1.0.0",
+    "rxjs": "^6.2.2",
+    "rxjs-compat": "^6.2.2"
   },
   "scripts": {
     "start": "react-scripts-ts start",
@@ -28,5 +30,12 @@
     "@types/react": "^16.4.6",
     "@types/react-dom": "^16.0.6",
     "typescript": "^2.9.2"
+  },
+  "proxy": {
+    "/movie/top250": {
+      "target": "http://api.douban.com/v2",
+      "secure": false,
+      "changeOrigin": true
+    }
   }
 }

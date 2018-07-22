@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route,Switch } from 'react-router-dom';
 import App from '../App';
 import { Index } from './Index/index';
 import { Header } from './header/';
+import { Douban } from './douban';
 
 interface RootProps {
   store:any;
@@ -23,6 +24,7 @@ export class Root extends React.Component<RootProps>{
             <Header/>
             <Switch>
               <Route path='/index' component={Index} />
+              <Route path='/douban' component={Douban} />
             </Switch>
           </App>
         </Router>

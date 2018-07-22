@@ -3,6 +3,6 @@ export interface IHeaderState {
 }
 
 export const initHeaderState:IHeaderState = {
-  msg:undefined,
+  msg:'我是初始化的值',
 };
 

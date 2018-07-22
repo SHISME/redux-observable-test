@@ -1,14 +1,20 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
 import { Link } from 'react-router-dom';
-import { IMyReducers } from '../../model/';
+import { IRootState } from '../../model/interface';
 
 const nav = [
   {
     code:"Index",
     name:'Index',
     path:'/index',
-  }
+  },
+  {
+    code:"Douban",
+    name:'Douban',
+    path:'/douban',
+  },
 ];
 
 interface HeaderProps {
@@ -16,28 +22,35 @@ interface HeaderProps {
 }
 
 class HeaderComponent extends React.Component<HeaderProps> {
+  public constructor(props:HeaderProps) {
+    super(props);
+  }
   public render(){
     return (<div>
       <ul>
       {
         nav.map((val, index) => {
-          return (<Link key={index} to={val.path}>{val.name}</Link>);
+          return (
+            <div key={index}>
+              <Link to={val.path}>{val.name}</Link>
+            </div>
+            );
         })
       }
       </ul>
-      Header
     </div>);
   }
 }
 
-function mapStateToProps(state:IMyReducers) {
+function mapStateToProps(state:IRootState) {
   return {
     msg:state.headerState.msg,
   };
 }
 
-function mapDispatchToProps() {
-  return {};
+function mapDispatchToProps(dipatch:Dispatch) {
+  return bindActionCreators({
+  },dipatch);
 }
 
 export const Header = connect(mapStateToProps, mapDispatchToProps)(HeaderComponent);

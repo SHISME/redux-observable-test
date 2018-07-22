@@ -1,11 +1,8 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { IMyReducers } from '../../model/';
+import { IRootState } from '../../model/interface';
 
 class IndexComponent extends React.Component {
-  public componentDidMount() {
-    console.warn('Index did mount');
-  }
   public render() {
     return (<div>
       hehe
@@ -13,8 +10,7 @@ class IndexComponent extends React.Component {
   }
 }
 
-function mapStateToProps( state:IMyReducers ) {
-  console.warn('state',state);
+function mapStateToProps( state:IRootState ) {
   return {
 
   };

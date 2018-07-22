@@ -1,15 +1,25 @@
-import { createStore, combineReducers } from 'redux';
-import { reducers } from './reducers';
-import { IAppState } from './state';
-import { headerReducers } from '../components/header/model/reducers';
-import { IHeaderState } from '../components/header/model/state';
+import { createStore,applyMiddleware, compose} from 'redux';
+import { rootEpic } from './rootEpic';
+import { createEpicMiddleware } from 'redux-observable';
+import { rootReducers } from './rootReducers';
 
-export interface IMyReducers {
-  appState:IAppState,
-  headerState:IHeaderState,
-}
+const epicMiddleware = createEpicMiddleware({
+  dependencies:{
+    someDependence:() => {
+      console.log('this is some dependence')
+    },
+  },
+});
 
-export const store:IMyReducers = createStore(combineReducers({
-  appState:reducers,
-  headerState:headerReducers,
-}));
+
+
+export const store = (()=>{
+  const _store = createStore(
+    rootReducers,
+    compose(
+      applyMiddleware(epicMiddleware),
+      (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__()),
+  );
+  epicMiddleware.run(rootEpic as any);
+  return _store;
+})();
