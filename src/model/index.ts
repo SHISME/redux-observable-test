@@ -3,11 +3,9 @@ import { rootEpic } from './rootEpic';
 import { createEpicMiddleware } from 'redux-observable';
 import { rootReducers } from './rootReducers';
 
+
 const epicMiddleware = createEpicMiddleware({
   dependencies:{
-    someDependence:() => {
-      console.log('this is some dependence')
-    },
   },
 });
 

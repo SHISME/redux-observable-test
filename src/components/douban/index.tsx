@@ -27,7 +27,6 @@ class DoubanComponent extends React.Component<DoubanProps> {
           return (
             <fieldset style={styles.box} key={subject.id}>
               <legend>{subject.title}</legend>
-              <img src={subject.images.medium}/>
               <div>
                 <div>
                   <b>评分：</b>{subject.rating.average}
