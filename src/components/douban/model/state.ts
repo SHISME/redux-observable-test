@@ -19,6 +19,7 @@ export interface ISubject {
 };
 
 export interface IDoubanState {
+  file_content:string;
   count:number;
   total:number;
   title:string;
@@ -27,6 +28,7 @@ export interface IDoubanState {
 }
 
 export const initDoubanState:IDoubanState = {
+  file_content:'',
   count:20,
   total:0,
   title:'',

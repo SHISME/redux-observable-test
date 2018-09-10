@@ -1,8 +1,9 @@
 import {combineEpics, ofType} from 'redux-observable';
-import {mergeMap, map} from 'rxjs/operators';
+import {mergeMap, map, concatAll} from 'rxjs/operators';
 import {Observable} from 'rxjs/Observable';
 import {ajax} from 'rxjs/ajax';
 import * as A from './actionTypes';
+import { getFileInfo$ } from '../../../asynTest/file';
 
 export const getTop250MovieFromDoubanEpic = (action$: Observable<any>) => {
   return action$.pipe(
@@ -48,6 +49,23 @@ export const getTop250MovieFromDoubanEpic = (action$: Observable<any>) => {
   );
 };
 
+export const getFileInfoEpic = (action$:Observable<any>) => {
+  return action$.pipe(
+    ofType(A.GET_FILE_INFO),
+    map(({payload}:{payload:{file_name:string}}) => {
+      return getFileInfo$(payload);
+    }),
+    concatAll(),
+    map(({content}:{content:string}) => {
+      return {
+        type:A.GET_FILE_INFO_SUCCEED,
+        payload:content,
+      };
+    }),
+  );
+}
+
 export const doubanEpics = combineEpics(
   getTop250MovieFromDoubanEpic,
+  getFileInfoEpic,
 );
